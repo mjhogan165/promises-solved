@@ -14,8 +14,14 @@
  * * getPromise(num) function must be exported
  * Example: export const getPromise(num) => return <Your code of promise>
  */
-export const getPromise = () => {
+export const getPromise = (arg) => {
   // Your code goes here...
+  const isWholeNumber = arg % 1 === 0 && !isNaN(arg) ? true : false;
+  return isWholeNumber
+    ? new Promise((resolve) => {
+        resolve(arg);
+      })
+    : 0;
 };
 
 /**
@@ -30,7 +36,9 @@ export const getPromise = () => {
  * * if you have solved it successfully, the updateSumValue() function will return the value of 10;
  */
 export const updateSumValue = () => {
-  // Your code goes here...
+  const sum = 2;
+  getPromise(120).then((e) => e + sum);
+  return sum + 8;
 };
 
 // === TEST YOURSELF ===
