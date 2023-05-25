@@ -8,8 +8,10 @@
  *          export const Promise
  */
 
-export const attachTitle = () => {
+export const attachTitle = (arg) => {
   // Your code goes here...
+  const addStr = 'DR.'
+  return addStr.concat(' ', arg)
 };
 
 /**
@@ -22,6 +24,10 @@ export const attachTitle = () => {
 
 export const getPromise = () => {
   // Your code goes here...
+  const myPromise = new Promise((resolve, reject)=> {
+    resolve("MANHATTAN")
+  })
+  return myPromise.then((value)=>attachTitle(value)).then((title)=> console.log(title))
 };
 
 // === TEST YOURSELF ===
