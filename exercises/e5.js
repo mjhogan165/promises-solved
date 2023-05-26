@@ -10,8 +10,7 @@
 
 export const attachTitle = (arg) => {
   // Your code goes here...
-  const addStr = 'DR.'
-  return addStr.concat(' ', arg)
+  return `DR. ${arg}`
 };
 
 /**
@@ -27,7 +26,9 @@ export const getPromise = () => {
   const myPromise = new Promise((resolve, reject)=> {
     resolve("MANHATTAN")
   })
-  return myPromise.then((value)=>attachTitle(value)).then((title)=> console.log(title))
+  return myPromise
+  .then((value) => attachTitle(value))
+  .then((title)=> console.log(title))
 };
 
 // === TEST YOURSELF ===

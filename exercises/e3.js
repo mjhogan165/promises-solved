@@ -16,8 +16,7 @@
  */
 export const getPromise = (arg) => {
   // Your code goes here...
-  const isWholeNumber = arg % 1 === 0 && !isNaN(arg) ? true : false;
-  return isWholeNumber
+  return arg % 1 === 0 && !isNaN(arg)
     ? new Promise((resolve) => {
         resolve(arg);
       })
@@ -36,9 +35,10 @@ export const getPromise = (arg) => {
  * * if you have solved it successfully, the updateSumValue() function will return the value of 10;
  */
 export const updateSumValue = () => {
-  const sum = 2;
-  getPromise(120).then((e) => e + sum);
-  return sum + 8;
+  let sum = 2;
+  getPromise(120).then((value) => value + sum);
+  sum += 8;
+  return sum;
 };
 
 // === TEST YOURSELF ===

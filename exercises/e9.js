@@ -13,8 +13,7 @@
 export function iterate(arg) {
   // Your code goes here...
   console.log(arg);
-  const answer = Number(arg) + 1
-  return answer;
+  return arg + 1;
 }
 
 /**
@@ -25,11 +24,6 @@ export function iterate(arg) {
 
 export function alwaysThrows() {
   // Your code goes here...
-  // try {
-  //   throw new Error("OH NOES")
-  // } catch (error) {
-  //   console.log(error);
-  // }
   throw new Error("OH NOES")
 }
 
@@ -71,18 +65,18 @@ export function onReject(error) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve(iterate(0))
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .then(()=>alwaysThrows())
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .then((val) => iterate(val))
-  .catch((e) => onReject(e));
+export const promise = Promise.resolve(iterate(1))
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(alwaysThrow)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .catch(onReject);
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-9"

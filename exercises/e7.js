@@ -24,11 +24,10 @@ export function parsePromised(json) {
   let parsed
   const myPromise = new Promise((resolve, reject) => {
     try {
-      parsed = JSON.parse(json);
+      resolve(JSON.parse(json));
     } catch (err) {
       reject(err);
     }
-    resolve(parsed);
   });
   return myPromise;
 }
@@ -63,7 +62,7 @@ export const handlePromise = (promise) => {
     .then((val) => val)
     .catch((e) => {
       if (e.message) {
-        onReject(e);
+        return onReject(e);
       } else return e;
     });
 };
