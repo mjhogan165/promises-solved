@@ -24,7 +24,7 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
+export const handlePromise1 = Promise.all(promiseArr).catch((e) => e);
 
 /**
  * @task
@@ -41,7 +41,11 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
-
+export const handlePromise2 = (array) => {
+  return Promise.any(array)
+    .then((val) => val)
+    .catch((e) => e);
+};
 /**
  * @task
  * * Create the handlePromise3 function that follows:
@@ -57,7 +61,13 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
-
+export const handlePromise3 = (array) => {
+  return Promise.allSettled(array)
+    .then((val) => val)
+    .catch((e) => {
+      e;
+    });
+};
 /**
  * @task
  * Update the filter method callback to filter out any promise that will be settled before promise4
