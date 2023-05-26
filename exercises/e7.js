@@ -28,7 +28,6 @@ export function parsePromised(json) {
     } catch (err) {
       reject(err);
     }
-
     resolve(parsed);
   });
   return myPromise;
